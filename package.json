@@ -1,7 +1,7 @@
 {
-  "name": "Boilerplate",
+  "name": "fbgraph",
   "version": "0.0.1",
-  "author": "Chu Shao",
+  "author": "Ryan Chan",
   "scripts": {
     "start": "node app.js"
   },
@@ -13,7 +13,13 @@
     "passport": "*",
     "passport-facebook": "*",
     "passport-twitter": "*",
+    "fbgraph":"*",
+    "twit":"*",
     "dotenv": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/rychan14/rhofish/git"
   },
   "engines": {
     "node": "0.10.x"
