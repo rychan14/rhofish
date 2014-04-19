@@ -8,9 +8,20 @@ var graph = require('fbgraph')
 var twit = require('twit')
 var dotenv = require ('dotenv');
 dotenv.load();
-
+var oauth = require('oauth');
 //route files to load
 var index = require('./routes/index');
+
+//Using popup (option 1)
+OAuth.popup('facebook', function(error, result) {
+  //handle error with error
+  //use result.access_token in your API request
+});
+
+//Using redirection (option 2)
+OAuth.redirect('facebook', "callback/url");
+
+OAuth.initialize('hRAFMT5Z71cdwOtuI1fmxq3H2Bk');
 
 //add facebook-node-sdk
 var FB = require('fb');
@@ -27,6 +38,7 @@ FB.api('oauth/access_token', {
 
 var accessToken = res.access_token;
 });
+
 //database setup - uncomment to set up your database
 //var mongoose = require('mongoose');
 //mongoose.connect(process.env.MONGOHQ_URL || 'mongodb://localhost/DATABASE1);
@@ -40,7 +52,6 @@ app.use(express.bodyParser());
 
 //routes
 app.get('/', index.view);
-
 
 //set environment ports and start application
 app.set('port', process.env.PORT || 3000);
