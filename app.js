@@ -23,6 +23,15 @@ OAuth.redirect('facebook', "callback/url");
 
 OAuth.initialize('hRAFMT5Z71cdwOtuI1fmxq3H2Bk');
 
+//Using popup (option 1)
+OAuth.popup('twitter', function(error, result) {
+  //handle error with error
+  //use result.access_token in your API request
+});
+
+//Using redirection (option 2)
+OAuth.redirect('twitter', "callback/url");
+
 //add facebook-node-sdk
 var FB = require('fb');
 
